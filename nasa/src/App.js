@@ -49,14 +49,14 @@ function App() {
     while (!picture & calls < 20) {
       calls++;
       const json = await NASAapiCall(year, page)
-      if (json.collection.items.length == 0) {
-        if (json.collection.metadata.total_hits == 0) {
+      if (json.collection.items.length === 0) {
+        if (json.collection.metadata.total_hits === 0) {
           year = 1900 + Math.floor(Math.random() * (date - 1899))
           console.log(`New year: ${year}`);
         }
         else {
           for (let link of json.collection.links) {
-            if (link.rel == "prev") {
+            if (link.rel === "prev") {
               let max_page = link.href;
               const index = max_page.indexOf("page=")
               max_page = max_page.slice(index + 5)
@@ -94,7 +94,7 @@ function App() {
       <h4>Random NASA API picture</h4>
       <hr></hr>
       <h2> {pictureOBJ.data[0].title}</h2>
-      <img src={pictureOBJ.href} width="80%" />
+      <img src={pictureOBJ.href} width="80%" alt={pictureOBJ.data[0].title} />
       <p>{pictureOBJ.data[0].description}</p>
       <br />
       <Details title="Center" value={pictureOBJ.data[0].center}></Details>
