@@ -1,5 +1,8 @@
 # NASA Random Image Generator
  Display a random image from the NASA api
+https://nasa-random-image-generator.pages.dev/
+nasa.salvadorrazo.com
+
 
 1) make a project with npx create-react-app nasa
 2) fetch data from https://images-api.nasa.gov/search?year_start=${year}&year_end=${year+1}&page=${page}
